@@ -1,0 +1,75 @@
+BEGIN:VCALENDAR
+PRODID:-//2000 Class Association//NONSGML Events calendar//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:Europe/London
+TZURL:http://tzurl.org/zoneinfo-outlook/Europe/London
+X-LIC-LOCATION:Europe/London
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+TZNAME:BST
+DTSTART:19700329T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+TZNAME:GMT
+DTSTART:19701025T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20191004T151250Z
+UID:http://localhost:4000/events/2019-08-10-national-championships.html
+DTSTART;VALUE=DATE:20190810
+DTEND;VALUE=DATE:20190816
+SUMMARY:National Championships
+URL:http://localhost:4000/events/2019-08-10-national-championships.html
+DESCRIPTION:2000 Class 20th Anniversary National Championships and Fe...
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20191004T151250Z
+UID:http://localhost:4000/events/2019-09-07-millenium-series-6.html
+DTSTART;VALUE=DATE:20190907
+DTEND;VALUE=DATE:20190908
+SUMMARY:Millenium Series 6
+URL:http://localhost:4000/events/2019-09-07-millenium-series-6.html
+DESCRIPTION:At Stone Sailing Club (SSC) we have a new 2000 fleet\, cu...
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20191004T151250Z
+UID:http://localhost:4000/events/millenium-series-6.html
+DTSTART;VALUE=DATE:20190927
+DTEND;VALUE=DATE:20190927
+SUMMARY:Millenium Series 7
+URL:http://localhost:4000/events/millenium-series-6.html
+DESCRIPTION:Millenium Series 7\, one day event.
+LOCATION:Bouch Beech Sailing Club, Kent, TN8 7AN
+GEO:51.208596;0.140964
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20191004T151250Z
+UID:http://localhost:4000/events/inland-championships-2019.html
+DTSTART;VALUE=DATE:20191018
+DTEND;VALUE=DATE:20191019
+SUMMARY:Inland championships 2019
+URL:http://localhost:4000/events/inland-championships-2019.html
+DESCRIPTION:Inlands at Weir Wood SC.
+LOCATION:Weir Wood Sailing Club, East Sussex, RH18 5HT
+GEO:51.096175;0.006276
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20191004T151250Z
+UID:http://localhost:4000/events/national-championships-2020.html
+DTSTART;VALUE=DATE:20200815
+DTEND;VALUE=DATE:20200820
+SUMMARY:National Championships 2020
+URL:http://localhost:4000/events/national-championships-2020.html
+DESCRIPTION:National Championships 2020
+LOCATION:Brixham Yacht Club, Devon, TQ5 8AR
+GEO:50.399649;-3.514452
+END:VEVENT
+END:VCALENDAR
