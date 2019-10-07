@@ -11,7 +11,6 @@ import java.io.IOException;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
-import net.fortuna.ical4j.model.TimeZoneRegistry;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
@@ -33,17 +32,15 @@ public class CalendarValidator {
         try {
             calendarValidator.run();
         } catch (IOException ex) {
-            System.out.printf(ex.getMessage());
+            logger.info(ex.getMessage());
         } catch (ParserException ex) {
-            System.out.printf(ex.getMessage());
+            logger.info(ex.getMessage());
         }
     }
 
     public void run() throws FileNotFoundException, IOException, ParserException {
-        System.out.printf("Running validation on file %s", filepath);
         FileInputStream inputStream = new FileInputStream(filepath);
         CalendarBuilder builder = new CalendarBuilder();
-        TimeZoneRegistry registry = builder.getRegistry();
         Calendar calendar = builder.build(inputStream);
         calendar.validate(true);
     }
