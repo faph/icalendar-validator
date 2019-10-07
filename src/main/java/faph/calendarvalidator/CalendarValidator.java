@@ -8,18 +8,23 @@ import com.beust.jcommander.Parameter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
+import net.fortuna.ical4j.model.TimeZoneRegistry;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 
 public class CalendarValidator {
 
     @Parameter()
     String filepath;
 
+    static Logger logger = Logger.getLogger(CalendarValidator.class);
+
     public static void main(String... argv) {
+        BasicConfigurator.configure();
+
         CalendarValidator calendarValidator = new CalendarValidator();
         JCommander.newBuilder()
                 .addObject(calendarValidator)
@@ -28,9 +33,9 @@ public class CalendarValidator {
         try {
             calendarValidator.run();
         } catch (IOException ex) {
-            Logger.getLogger(CalendarValidator.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.printf(ex.getMessage());
         } catch (ParserException ex) {
-            Logger.getLogger(CalendarValidator.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.printf(ex.getMessage());
         }
     }
 
@@ -38,6 +43,7 @@ public class CalendarValidator {
         System.out.printf("Running validation on file %s", filepath);
         FileInputStream inputStream = new FileInputStream(filepath);
         CalendarBuilder builder = new CalendarBuilder();
+        TimeZoneRegistry registry = builder.getRegistry();
         Calendar calendar = builder.build(inputStream);
         calendar.validate(true);
     }
