@@ -55,6 +55,7 @@ public class CalendarValidator {
                 .parse(argv);
         try {
             calendarValidator.run();
+            logger.info("Validation successful.");
         } catch (IOException ex) {
             logger.fatal(ex.getMessage());
             System.exit(2);
@@ -65,14 +66,15 @@ public class CalendarValidator {
     }
 
     public void run() throws FileNotFoundException, IOException, ParserException {
-        if (verbose) {
-            Logger.getRootLogger().setLevel(Level.DEBUG);
-        } else {
-            Logger.getRootLogger().setLevel(Level.INFO);
-        }
+        setLogLevel();
         FileInputStream inputStream = new FileInputStream(filepath);
         CalendarBuilder builder = new CalendarBuilder();
         Calendar calendar = builder.build(inputStream);
         calendar.validate(true);
+    }
+
+    private void setLogLevel() {
+        Logger rootLogger = Logger.getRootLogger();
+        rootLogger.setLevel(verbose ? Level.DEBUG : Level.INFO);
     }
 }
