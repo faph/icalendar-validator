@@ -32,6 +32,7 @@ import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.Calendar;
 import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 public class CalendarValidator {
@@ -43,6 +44,7 @@ public class CalendarValidator {
 
     public static void main(String... argv) {
         BasicConfigurator.configure();
+        Logger.getRootLogger().setLevel(Level.INFO);
 
         CalendarValidator calendarValidator = new CalendarValidator();
         JCommander.newBuilder()
