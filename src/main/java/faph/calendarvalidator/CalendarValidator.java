@@ -37,14 +37,16 @@ import org.apache.log4j.Logger;
 
 public class CalendarValidator {
 
-    @Parameter()
+    @Parameter(description = "iCalendar file to validate")
     String filepath;
+
+    @Parameter(names = {"--verbose", "-v"}, description = "Verbose, debug mode")
+    private boolean verbose = false;
 
     static Logger logger = Logger.getLogger(CalendarValidator.class);
 
     public static void main(String... argv) {
         BasicConfigurator.configure();
-        Logger.getRootLogger().setLevel(Level.INFO);
 
         CalendarValidator calendarValidator = new CalendarValidator();
         JCommander.newBuilder()
@@ -63,6 +65,11 @@ public class CalendarValidator {
     }
 
     public void run() throws FileNotFoundException, IOException, ParserException {
+        if (verbose) {
+            Logger.getRootLogger().setLevel(Level.DEBUG);
+        } else {
+            Logger.getRootLogger().setLevel(Level.INFO);
+        }
         FileInputStream inputStream = new FileInputStream(filepath);
         CalendarBuilder builder = new CalendarBuilder();
         Calendar calendar = builder.build(inputStream);
