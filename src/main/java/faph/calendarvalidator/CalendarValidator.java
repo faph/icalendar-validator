@@ -32,10 +32,10 @@ public class CalendarValidator {
         try {
             calendarValidator.run();
         } catch (IOException ex) {
-            logger.info(ex.getMessage());
+            logger.fatal(ex.getMessage());
             System.exit(2);
         } catch (ParserException ex) {
-            logger.info(ex.getMessage());
+            logger.error(ex.getMessage());
             System.exit(1);
         }
     }
