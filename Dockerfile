@@ -22,4 +22,5 @@
 
 FROM openjdk:8-jre-alpine3.9
 COPY target/icalendar-validator-*-with-dependencies.jar /app/app.jar
+CMD [ "--help" ]
 ENTRYPOINT [ "/usr/bin/java", "-jar", "/app/app.jar" ]

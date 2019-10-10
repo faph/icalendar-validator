@@ -40,8 +40,11 @@ public class CalendarValidator {
     @Parameter(description = "iCalendar file to validate")
     String filepath;
 
-    @Parameter(names = {"--verbose", "-v"}, description = "Verbose, debug mode")
+    @Parameter(names = {"--verbose", "-v"}, description = "Debug mode with verbose logging")
     private boolean verbose = false;
+
+    @Parameter(names = {"--help", "-h"}, help = true, description = "Display help information")
+    private boolean help = false;
 
     static Logger logger = Logger.getLogger(CalendarValidator.class);
 
@@ -49,10 +52,13 @@ public class CalendarValidator {
         BasicConfigurator.configure();
 
         CalendarValidator calendarValidator = new CalendarValidator();
-        JCommander.newBuilder()
-                .addObject(calendarValidator)
-                .build()
-                .parse(argv);
+        JCommander jCommander = JCommander.newBuilder().addObject(calendarValidator).build();
+        jCommander.setProgramName("CalendarValidator");
+        jCommander.parse(argv);
+        if (calendarValidator.isHelp()) {
+            jCommander.usage();
+            return;
+        }
         try {
             calendarValidator.run();
             logger.info("Validation successful.");
@@ -63,6 +69,10 @@ public class CalendarValidator {
             logger.error(ex.getMessage());
             System.exit(1);
         }
+    }
+
+    public boolean isHelp() {
+        return help;
     }
 
     public void run() throws FileNotFoundException, IOException, ParserException {
