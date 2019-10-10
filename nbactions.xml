@@ -14,4 +14,14 @@
             <exec.executable>java</exec.executable>
         </properties>
     </action>
+    <action>
+            <actionName>CUSTOM-Deploy</actionName>
+            <displayName>Deploy</displayName>
+            <goals>
+                <goal>deploy</goal>
+            </goals>
+            <properties>
+                <Env.DOCKER_HUB_TOKEN>c2dd07bd-b84b-40fe-83dd-44c18623631c</Env.DOCKER_HUB_TOKEN>
+            </properties>
+        </action>
 </actions>
