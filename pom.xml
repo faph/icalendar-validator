@@ -71,6 +71,16 @@
                             <goal>push</goal>
                         </goals>
                     </execution>
+                    <execution>
+                        <id>tag-latest</id>
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <tag>latest</tag>
+                        </configuration>
+                    </execution>
                 </executions>
                 <configuration>
                     <username>${project.groupId}</username>
