@@ -3,6 +3,12 @@ icalendar-validator
 
 [iCalendar file][ical] validator command-line application available as a Docker image.
 
+Run the validator like this:
+
+    docker run --volume=<local dir>:/data faph/icalendar-validator /data/calendar.ics
+
+where `<local dir>` is a directory containing the file `calendar.ics`.
+
 Based on the [ical4j][ical4j] library.
 
 
