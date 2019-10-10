@@ -1,7 +1,8 @@
 name: Java CI
-
-on: [push]
-
+on:
+  push:
+    branches: master
+  
 jobs:
   build:
 
@@ -13,5 +14,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Build with Maven
-      run: mvn package --file pom.xml
+    - name: Deploy with Maven
+      env:
+        DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+      run: mvn deploy --file pom.xml
