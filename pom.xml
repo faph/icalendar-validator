@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>faph</groupId>
     <artifactId>icalendar-validator</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
     <scm>
         <developerConnection>scm:git:https://github.com/${project.groupId}/${project.artifactId}</developerConnection>
-      <tag>HEAD</tag>
+      <tag>v1.1</tag>
   </scm>
     <dependencies>
         <dependency>
