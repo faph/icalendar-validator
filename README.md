@@ -1,3 +1,6 @@
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/faph/icalendar-validator?label=release&sort=semver)
+![Docker Pulls](https://img.shields.io/docker/pulls/faph/icalendar-validator)
+
 icalendar-validator
 ===================
 
