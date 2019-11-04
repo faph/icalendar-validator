@@ -1,3 +1,4 @@
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ffaph%2Ficalendar-validator%2Fbadge&style=flat&label=GitHub%20Action&logo=none)](https://actions-badge.atrox.dev/faph/icalendar-validator/goto)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/faph/icalendar-validator?label=release&sort=semver)
 ![Docker Pulls](https://img.shields.io/docker/pulls/faph/icalendar-validator)
 
